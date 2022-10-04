@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegistrController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/catalog', function () {
-    return view('catalog');
-});
 
 Route::name('user.')->group(function(){
     Route::view('/private', 'private')->middleware('auth')->name('private');
@@ -47,4 +45,6 @@ Route::name('user.')->group(function(){
         return view('registration');
     })->name('registration');
     Route::post('/registration',[RegistrController::class,'save']);
+
+    Route::get('/catalog',[ProductController::class,'getProducts']);
 });
