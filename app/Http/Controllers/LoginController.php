@@ -13,7 +13,7 @@ class LoginController extends Controller
         if(Auth::attempt($formVields)){
             return redirect()->intended('/');
         }
-        return redirect()->to(route('user.login'))->withErrors([
+        return back()->withErrors([
             'email'=>'Error'
         ]);
     }

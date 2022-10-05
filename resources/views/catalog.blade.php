@@ -4,16 +4,18 @@
 <div class="container mx-auto mt-4">
     <div class="row">
       @foreach ($products as $product)
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{$product->name}}</h5>
-            <p class="card-text">{{$product->price}}</p>
-            <a href="#" class="btn btn-primary">В корзину</a>
+      <form action="{{ route('basket.add', ['id' => $product->id]) }}" method="post" class="form-inline">
+        <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{$product->name}}</h5>
+              <p class="card-text">{{$product->price}}</p>
+              <button type="submit" class="btn btn-success">Добавить в корзину</button>
+            </div>
           </div>
         </div>
-     </div>
+      </form>
       @endforeach
     </div>
  </div>

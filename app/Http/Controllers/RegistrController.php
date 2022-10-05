@@ -18,7 +18,7 @@ class RegistrController extends Controller
             'password'=>'required'
         ]);
         if(User::where('email',$validateFields['email'])->exists()){
-            return redirect()->to(route('user.registration'))->withErrors([
+            return back()->withErrors([
                 'email'=>'Уже существует такой email'
             ]);
         }

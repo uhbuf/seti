@@ -8,25 +8,38 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Вход</h1>
     <form class="col-3 offset-4 border rounded" method="POST" action="{{route('user.login')}}">
-        <div class="form-group">
-            <label for="email" class="col-form-label-lg">Ваше email</label>
-            <input class="form-control" id="email" name="email" type="text" value="" placeholder="Email">
-            @error('record')
-                <div class="alert alert-danger">{{$message}}</div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="password" class="col-form-label-lg">Ваше password</label>
-            <input class="form-control" id="password" name="password" type="password" value="" placeholder="Пароль">
-            @error('record')
-                <div class="alert alert-danger">{{$message}}</div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <button class="btn btn-lg btn-primary" type="sumbit" name="sendMe" value="1">Войти</button>
-        </div>
+        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">Вход</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="form-group">
+                        <label for="email" class="col-form-label-lg">Email</label>
+                        <input class="form-control" id="email" name="email" type="text" value="" placeholder="Email">
+                        @error('email')
+                            <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-form-label-lg">Password</label>
+                        <input class="form-control" id="password" name="password" type="password" value="" placeholder="Пароль">
+                        @error('record')
+                            <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary" type="sumbit" name="sendMe" value="1">Войти</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
     </form>
 </body>
 </html>

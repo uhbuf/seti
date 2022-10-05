@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     public function getProducts(){
-        $products=Products::select('name','price','description')->get();
+        $products=Products::select('name','price','description','id')->get();
         return view('catalog',['products'=>$products]);
     }
 }

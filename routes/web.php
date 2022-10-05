@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegistrController;
@@ -45,6 +46,10 @@ Route::name('user.')->group(function(){
         return view('registration');
     })->name('registration');
     Route::post('/registration',[RegistrController::class,'save']);
-
-    Route::get('/catalog',[ProductController::class,'getProducts']);
 });
+Route::get('/catalog',[ProductController::class,'getProducts']);
+
+Route::get('/basket',[BasketController::class,'index']);
+Route::post('/basket/add/{id}', [BasketController::class,'add'])
+->where('id', '[0-9]+')
+->name('basket.add');
