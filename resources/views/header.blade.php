@@ -20,13 +20,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Новости</a>
+              <a class="nav-link" href="/">Новости</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="catalog">Каталог</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Контактные данные</a>
+              <a class="nav-link" href="basket">Корзина</a>
             </li>
             @if (Auth::check())
               <a class="nav-link" href="logout">Выход</a>

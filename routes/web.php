@@ -50,6 +50,7 @@ Route::name('user.')->group(function(){
 Route::get('/catalog',[ProductController::class,'getProducts']);
 
 Route::get('/basket',[BasketController::class,'index']);
-Route::post('/basket/add/{id}', [BasketController::class,'add'])
-->where('id', '[0-9]+')
-->name('basket.add');
+Route::post('/basket/add/{id}', [BasketController::class,'add'])->where('id', '[0-9]+')->name('basket.add');
+Route::post('/basket/minus/{id}', [BasketController::class,'minus'])->where('id', '[0-9]+')->name('basket.minus');
+Route::post('/basket/plus/{id}', [BasketController::class,'plus'])->where('id', '[0-9]+')->name('basket.plus');
+Route::post('/basket/remove/{id}', [BasketController::class,'remove'])->where('id', '[0-9]+')->name('basket.remove');
