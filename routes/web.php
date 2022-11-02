@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
@@ -54,3 +55,8 @@ Route::post('/basket/add/{id}', [BasketController::class,'add'])->where('id', '[
 Route::post('/basket/minus/{id}', [BasketController::class,'minus'])->where('id', '[0-9]+')->name('basket.minus');
 Route::post('/basket/plus/{id}', [BasketController::class,'plus'])->where('id', '[0-9]+')->name('basket.plus');
 Route::post('/basket/remove/{id}', [BasketController::class,'remove'])->where('id', '[0-9]+')->name('basket.remove');
+
+Route::post('/admin/delete/{id}',[AdminController::class,'delete'])->where('id','[0-9]+')->name('admin.delete');
+Route::post('/admin/index/{id}/{action}',[AdminController::class,'index'])->where('id','[0-9]+')->name('admin.index');
+Route::post('/admin/change/{id}',[AdminController::class,'change'])->where('id','[0-9]+')->name('admin.change');
+Route::post('/admin/add/',[AdminController::class,'new'])->name('admin.new');
